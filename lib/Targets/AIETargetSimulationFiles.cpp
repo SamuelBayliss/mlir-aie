@@ -23,12 +23,15 @@ namespace AIE {
 
 
 mlir::LogicalResult AIETranslateSCSimConfig(mlir::ModuleOp module, llvm::raw_ostream &output){
+ output << "scsim.config" <<"\n";
  return mlir::success();
 }
-mlir::LogicalResult AIETranslateShimSolution(mlir::ModuleOp module, llvm::raw_ostream &){
+mlir::LogicalResult AIETranslateShimSolution(mlir::ModuleOp module, llvm::raw_ostream & output){
+    output << "shimsolution" <<"\n";
  return mlir::success();
 }
-mlir::LogicalResult AIETranslateGraphXPE(mlir::ModuleOp module, llvm::raw_ostream &){
+mlir::LogicalResult AIETranslateGraphXPE(mlir::ModuleOp module, llvm::raw_ostream & output){
+    output << "graph.xpe" << "\n";
      return mlir::success();
 }
 
