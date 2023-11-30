@@ -60,6 +60,14 @@ if config.enable_board_tests:
 else:
     config.substitutions.append(("%run_on_board", "echo"))
 
+if config.enable_simulator_tests:
+    config.substitutions.append(
+        ("%run_on_simulator", "echo SIMULATING")
+    )
+else:
+    config.substitutions.append(("%run_on_simulator", "echo"))
+
+
 VitisSysrootFlag = ""
 if config.aieHostTarget == "x86_64":
     config.substitutions.append(("%aieHostTargetTriplet%", "x86_64-unknown-linux-gnu"))

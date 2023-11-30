@@ -57,6 +57,15 @@ else()
 endif()
 option(ENABLE_BOARD_TESTS "Enable board tests" ${DEFAULT_ENABLE_BOARD_TESTS})
 
+if(Vitis_Simulator_FOUND)
+  set(DEFAULT_ENABLE_SIMULATOR_TESTS ON)
+else()
+  set(DEFAULT_ENABLE_SIMULATOR_TESTS OFF)
+endif()
+option(ENABLE_Simulator_TESTS "Enable simulator tests" ${DEFAULT_ENABLE_SIMULATOR_TESTS})
+
+
+
 find_package(MLIR REQUIRED CONFIG)
 
 message(STATUS "Using MLIRConfig.cmake in: ${MLIR_DIR}")
@@ -108,11 +117,19 @@ set(CONFIG_ENABLE_CHESS_TESTS 1)
 else()
 set(CONFIG_ENABLE_CHESS_TESTS 0)
 endif()
+
 if(ENABLE_BOARD_TESTS)
 set(CONFIG_ENABLE_BOARD_TESTS 1)
 else()
 set(CONFIG_ENABLE_BOARD_TESTS 0)
 endif()
+
+if(ENABLE_SIMULATOR_TESTS)
+set(CONFIG_ENABLE_SIMULATOR_TESTS 1)
+else()
+set(CONFIG_ENABLE_SIMULATOR_TESTS 0)
+endif()
+
 if(LibXAIE_FOUND)
 set(CONFIG_HAS_LIBXAIE 1)
 else()

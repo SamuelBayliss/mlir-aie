@@ -26,7 +26,7 @@
 // REQUIRES: valid_xchess_license
 // RUN: %PYTHON aiecc.py --aiesim --xchesscc --xbridge %VitisSysrootFlag% --host-target=%aieHostTargetTriplet% %s -I%host_runtime_lib%/test_lib/include %extraAieCcFlags% %S/test.cpp -o test -L%host_runtime_lib%/test_lib/lib -ltest_lib
 // RUN: %run_on_board ./test.elf
-// RUN: aie.mlir.prj/aiesim.sh | FileCheck %s
+// RUN: %run_on_simulator aie.mlir.prj/aiesim.sh | FileCheck %s
 
 // CHECK: AIE2 ISS
 // CHECK: PASS!
